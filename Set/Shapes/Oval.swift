@@ -23,3 +23,9 @@ struct Oval: Shape {
         return p
     }
 }
+
+struct Oval_Previews: PreviewProvider {
+    static var previews: some View {
+        Oval()
+    }
+}

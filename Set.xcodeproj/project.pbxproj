@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6111809428E9D6D2004176F2 /* Squiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6111809328E9D6D2004176F2 /* Squiggle.swift */; };
 		6140867D28E8AF0C00400791 /* SetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140867C28E8AF0C00400791 /* SetApp.swift */; };
 		6140867F28E8AF0C00400791 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140867E28E8AF0C00400791 /* ContentView.swift */; };
 		6140868128E8AF0C00400791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6140868028E8AF0C00400791 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6111809328E9D6D2004176F2 /* Squiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Squiggle.swift; path = Shapes/Squiggle.swift; sourceTree = "<group>"; };
 		6140867928E8AF0C00400791 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6140867C28E8AF0C00400791 /* SetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetApp.swift; sourceTree = "<group>"; };
 		6140867E28E8AF0C00400791 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				6140867C28E8AF0C00400791 /* SetApp.swift */,
 				6140867E28E8AF0C00400791 /* ContentView.swift */,
+				6111809328E9D6D2004176F2 /* Squiggle.swift */,
 				6178334128E9CDFF00CBA401 /* Rhombus.swift */,
 				6178333D28E9C9AB00CBA401 /* Oval.swift */,
 				6178333B28E9C13900CBA401 /* AspectVGrid.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6111809428E9D6D2004176F2 /* Squiggle.swift in Sources */,
 				6178333C28E9C13900CBA401 /* AspectVGrid.swift in Sources */,
 				6178333E28E9C9AB00CBA401 /* Oval.swift in Sources */,
 				6178334228E9CDFF00CBA401 /* Rhombus.swift in Sources */,
