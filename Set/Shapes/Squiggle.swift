@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct Squiggle: Shape {
+struct Squiggle: InsettableShape {
+    
+    var insetAmount = 0.0
+    
     func path(in rect: CGRect) -> Path {
-        let offset = min(rect.width, rect.height) / 13
+        let offset = min(rect.width-insetAmount, rect.height-insetAmount) / 13
 
         var P = Path()
 
@@ -28,9 +31,14 @@ struct Squiggle: Shape {
 
         return P
     }
+    func inset(by amount: CGFloat) -> some InsettableShape {
+        var arc = self
+        arc.insetAmount += amount
+        return arc
+    }
 }
 struct Squiggle_Previews: PreviewProvider {
     static var previews: some View {
-        Squiggle()
+        Squiggle(insetAmount: 20)
     }
 }
