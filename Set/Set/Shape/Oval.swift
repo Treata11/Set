@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct Oval: InsettableShape {
-    var insetAmount = 3.0
+    var insetAmount = 0.0
     
     public func path(in rect: CGRect) -> Path {
         
@@ -33,6 +33,6 @@ public struct Oval: InsettableShape {
 
 struct Oval_Previews: PreviewProvider {
     static var previews: some View {
-        Oval(insetAmount: 5)
+        Oval(insetAmount: 0)
     }
 }

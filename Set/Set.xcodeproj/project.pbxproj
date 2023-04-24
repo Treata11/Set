@@ -65,7 +65,7 @@
 		61779E6029ED8E2B00F1849F /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				61B042DE29F6809F00C3FF41 /* New Group */,
+				61B042DE29F6809F00C3FF41 /* Shape */,
 				61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */,
 				61CDDDBC29F2B5F4004F9502 /* TraditionalSetGame.swift */,
 				61779E6129ED8E2B00F1849F /* SetApp.swift */,
@@ -86,14 +86,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		61B042DE29F6809F00C3FF41 /* New Group */ = {
+		61B042DE29F6809F00C3FF41 /* Shape */ = {
 			isa = PBXGroup;
 			children = (
 				61B042DF29F680B400C3FF41 /* Oval.swift */,
 				61B042E029F680B400C3FF41 /* Rhombus.swift */,
 				61B042E129F680B400C3FF41 /* Squiggle.swift */,
 			);
-			path = "New Group";
+			path = Shape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
