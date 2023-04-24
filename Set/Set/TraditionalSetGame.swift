@@ -10,7 +10,7 @@ import SwiftUI
 class TraditionalSetGame: ObservableObject {
     typealias Card = SET<Symbol, Shade, Counter, Hue>.Card
     
-    static var cardContent: [Card.CardContent] {
+    static var cardContents: [Card.CardContent] = {
         var contents = [Card.CardContent]()
         
         for shape in Symbol.allCases {
@@ -30,7 +30,16 @@ class TraditionalSetGame: ObservableObject {
         }
         
         return contents.shuffled()
+    }()
+    
+    static func createSetGame() -> SET<Symbol, Shade, Counter, Hue> {
+        SET(numberOfPairsOfCards: Int(floor(Double(cardContents.count/2)))) {    // Horrible type convertion
+            cardContents[$0]
+        }
     }
+    
+    // MARK: Initial Approache(s)
+    // to be deleted ...
     
     static func cardContentFactory(with pairIndex: Int) -> SET<Symbol, Shade, Counter, Hue> {
         let content = [Capsule(), Circle(), Rectangle()] as [Any]
@@ -39,15 +48,5 @@ class TraditionalSetGame: ObservableObject {
             return content[pairIndex] as! SET<Symbol, Shade, Counter, Hue> .Card.CardContent
         }
     }
-    
-//    func createSetGame() -> SET<SetShape, Int, Color, Shade> {
-//        // initialize the model:
-//        // required:
-//        return SET(
-//            numberOfPairsOfCards: content.count,
-//            cardContentFactory: <#T##(Int) -> SET<Hashable, Hashable, Hashable, Hashable>.Card.CardContent#>
-//        )
-//    }
-    
 }
 
