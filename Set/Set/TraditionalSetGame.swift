@@ -46,6 +46,10 @@ class TraditionalSetGame: ObservableObject {
         model.score
     }
     
+    var cards: [Card] {
+        model.cards
+    }
+    
     // MARK: Intent(s)
     
     func choose(_ card: Card) {
