@@ -23,7 +23,7 @@ struct CardView: View {
         }
     }
     
-    // basic representation of the cardview
+    // basic representation of the cardviewg
     @ViewBuilder
     func symbol(of card: TraditionalSetGame.Card) -> some View {
         switch card.symbol.firstParameter {
