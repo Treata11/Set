@@ -29,7 +29,6 @@ struct CardView: View {
             cardShape.fill(Color.white)
             cardShape.strokeBorder(lineWidth: DrawingConstants.effectLineWidth)
                 .foregroundColor(.accentColor)
-//            Text(game.cards)
             VStack {
                 // bogus: Fix .rawValue!
                 ForEach(0..<card.symbol.thirdParameter.rawValue, id: \.self) { _ in
@@ -40,7 +39,7 @@ struct CardView: View {
         }
     }
     
-    // basic representation of the cardviewg
+    // basic representation of the cardview
     @ViewBuilder
     func symbol(of card: TraditionalSetGame.Card) -> some View {
         switch card.symbol.firstParameter {
@@ -72,12 +71,13 @@ struct CardView: View {
                 .foregroundColor(color(of: contex))
                 .aspectRatio(DrawingConstants.symbolAspectRatio, contentMode: .fit)
                 .opacity(opacity)
-        case .striped(let stripeCount):
+        case .striped(let stripeCount, let opacity):
             symbol.fill()
                 .foregroundColor(color(of: contex))
                 .aspectRatio(DrawingConstants.symbolAspectRatio, contentMode: .fit)
+                .opacity(opacity)
             // TODO: mask (overylay) the symbol with the number of stripes
-///                .mask(stripe * stripeCount)
+                .mask(Stripes(stripeCount: stripeCount, lineWidth: 1))
         }
     }
     

@@ -12,6 +12,7 @@
 		61779E6629ED8E2B00F1849F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61779E6529ED8E2B00F1849F /* Assets.xcassets */; };
 		61779E6929ED8E2B00F1849F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61779E6829ED8E2B00F1849F /* Preview Assets.xcassets */; };
 		61779E7029ED8E7A00F1849F /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61779E6F29ED8E7A00F1849F /* Set.swift */; };
+		619EFC1B29F71E28006E2F52 /* StripedShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619EFC1A29F71E28006E2F52 /* StripedShapes.swift */; };
 		61B042DB29F675ED00C3FF41 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042DA29F675ED00C3FF41 /* AspectVGrid.swift */; };
 		61B042DD29F6802F00C3FF41 /* TraditionalSetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */; };
 		61B042E229F680B400C3FF41 /* Oval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042DF29F680B400C3FF41 /* Oval.swift */; };
@@ -27,6 +28,7 @@
 		61779E6529ED8E2B00F1849F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61779E6829ED8E2B00F1849F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61779E6F29ED8E7A00F1849F /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		619EFC1A29F71E28006E2F52 /* StripedShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripedShapes.swift; sourceTree = "<group>"; };
 		61B042DA29F675ED00C3FF41 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionalSetParameters.swift; sourceTree = "<group>"; };
 		61B042DF29F680B400C3FF41 /* Oval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oval.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		61779E6029ED8E2B00F1849F /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				619EFC1A29F71E28006E2F52 /* StripedShapes.swift */,
 				61B042DE29F6809F00C3FF41 /* Shape */,
 				61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */,
 				61CDDDBC29F2B5F4004F9502 /* TraditionalSetGame.swift */,
@@ -169,6 +172,7 @@
 				61B042E329F680B400C3FF41 /* Rhombus.swift in Sources */,
 				61779E6429ED8E2B00F1849F /* SetGameView.swift in Sources */,
 				61779E6229ED8E2B00F1849F /* SetApp.swift in Sources */,
+				619EFC1B29F71E28006E2F52 /* StripedShapes.swift in Sources */,
 				61B042E429F680B400C3FF41 /* Squiggle.swift in Sources */,
 				61CDDDBD29F2B5F4004F9502 /* TraditionalSetGame.swift in Sources */,
 				61B042E229F680B400C3FF41 /* Oval.swift in Sources */,
