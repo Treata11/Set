@@ -33,7 +33,7 @@ class TraditionalSetGame: ObservableObject {
     }()
     
     static func createSetGame() -> SET<Symbol, Shade, Counter, Hue> {
-        SET(numberOfPairsOfCards: Int(floor(Double(cardContents.count/2)))) {    // Horrible type convertion
+        SET(totalNumberOfOfCards: Int(floor(Double(cardContents.count)))) {    // Horrible type convertion
             cardContents[$0]
         }
     }
@@ -62,7 +62,7 @@ class TraditionalSetGame: ObservableObject {
     static func cardContentFactory(with pairIndex: Int) -> SET<Symbol, Shade, Counter, Hue> {
         let content = [Capsule(), Circle(), Rectangle()] as [Any]
         
-        return SET<Symbol, Shade, Counter, Hue>(numberOfPairsOfCards: pairIndex) { _ in
+        return SET<Symbol, Shade, Counter, Hue>(totalNumberOfOfCards: pairIndex) { _ in
             return content[pairIndex] as! SET<Symbol, Shade, Counter, Hue> .Card.CardContent
         }
     }

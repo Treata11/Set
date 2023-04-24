@@ -22,12 +22,11 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
 //        self.cardContentFactory = cardContentFactory
 //    }
     
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> Card.CardContent) {
+    init(totalNumberOfOfCards: Int, cardContentFactory: (Int) -> Card.CardContent) {
         cards = Array<Card>()
-        for pairIndex in 0..<numberOfPairsOfCards {
+        for pairIndex in 0..<totalNumberOfOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(symbol: content, id: pairIndex*2-1))
-            cards.append(Card(symbol: content, id: pairIndex*2))
             // TODO: Change the ID to string raw value
         }
     }
