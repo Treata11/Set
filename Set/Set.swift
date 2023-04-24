@@ -52,7 +52,7 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
         }
     }
     
-    mutating func set(_ card: Card) {
+    private mutating func set(_ card: Card) {
         if chosenCardsIndices.count == 3 {
             var shapes: Set<α> = []
             var counter = Set<β>()
@@ -81,6 +81,8 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
             }
             // All cards are deselected wether a match did take place or not
             chosenCardsIndices = []
+            // TODO: isSelected for all cards is set to false. done!
+            chosenCardsIndices.forEach({ index in cards[index].isSelected = false })
         }
     }
     
@@ -125,3 +127,7 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
         }
     }
 }
+
+// NOTE:
+// so, the model above, is extremely error-prone on behalf of
+// lack of usage of property-observers and ineffective code used around.

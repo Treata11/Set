@@ -64,20 +64,28 @@ struct CardView: View {
         switch contex.secondParameter {
         case .solid(let opacity):
             symbol.fill()
-                .foregroundColor(.accentColor)  // TODO: get the color by the Hue enum
+                .foregroundColor(color(of: contex))
                 .aspectRatio(DrawingConstants.symbolAspectRatio, contentMode: .fit)
                 .opacity(opacity)
         case .clear(let opacity):
             symbol.fill()
-                .foregroundColor(Color.green)
+                .foregroundColor(color(of: contex))
                 .aspectRatio(DrawingConstants.symbolAspectRatio, contentMode: .fit)
                 .opacity(opacity)
         case .striped(let stripeCount):
             symbol.fill()
-                .foregroundColor(Color.green)
+                .foregroundColor(color(of: contex))
                 .aspectRatio(DrawingConstants.symbolAspectRatio, contentMode: .fit)
             // TODO: mask (overylay) the symbol with the number of stripes
 ///                .mask(stripe * stripeCount)
+        }
+    }
+    
+    func color(of cardContex: TraditionalSetGame.Card.CardContent) -> Color {
+        switch cardContex.forthParameter {
+        case .red: return Color.red
+        case .green: return Color.green
+        case .purple: return Color.purple
         }
     }
 }
