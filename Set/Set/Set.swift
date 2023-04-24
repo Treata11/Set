@@ -11,7 +11,7 @@ struct SET<α, β, γ, δ>
 where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
     var cards: Array<Card>
     
-    var score = 0
+    private(set) var score = 0
     
     var chosenCardsIndices = Array<Int>()
     
@@ -65,11 +65,11 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
                 color.insert(cards[index].symbol.thirdParameter)
                 shading.insert(cards[index].symbol.forthParameter)
             }
-            let differentials = [ shapes.count, counter.count, color.count, shading.count]
+            let differentials = [shapes.count, counter.count, color.count, shading.count]
             
             if differentials.contains(1) {  // indicating no differential in an element
                 for index in chosenCardsIndices {
-                    cards[index].isSelected = true
+                    cards[index].isMatched = true
                 }
                 score += 4
             } else if differentials.contains(2) {
@@ -79,7 +79,7 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
             } else {
                 score += 12
             }
-            // All cards are deselected on wether a match or not
+            // All cards are deselected wether a match did take place or not
             chosenCardsIndices = []
         }
     }

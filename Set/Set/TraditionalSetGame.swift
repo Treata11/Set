@@ -10,7 +10,7 @@ import SwiftUI
 class TraditionalSetGame: ObservableObject {
     typealias Card = SET<Symbol, Shade, Counter, Hue>.Card
     
-    static var cardContents: [Card.CardContent] = {
+    private(set) static var cardContents: [Card.CardContent] = {
         var contents = [Card.CardContent]()
         
         for shape in Symbol.allCases {
@@ -38,7 +38,21 @@ class TraditionalSetGame: ObservableObject {
         }
     }
     
-    // MARK: Initial Approache(s)
+    // MARK: - Access to to the Model
+    
+    @Published private var model = createSetGame()
+    
+    var score: Int {
+        model.score
+    }
+    
+    // MARK: Intent(s)
+    
+    func choose(_ card: Card) {
+        model.choose(card)
+    }
+    
+    // MARK: - Initial Approache(s)
     // to be deleted ...
     
     static func cardContentFactory(with pairIndex: Int) -> SET<Symbol, Shade, Counter, Hue> {
