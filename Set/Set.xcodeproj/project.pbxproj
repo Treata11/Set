@@ -12,7 +12,12 @@
 		61779E6629ED8E2B00F1849F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61779E6529ED8E2B00F1849F /* Assets.xcassets */; };
 		61779E6929ED8E2B00F1849F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61779E6829ED8E2B00F1849F /* Preview Assets.xcassets */; };
 		61779E7029ED8E7A00F1849F /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61779E6F29ED8E7A00F1849F /* Set.swift */; };
-		61CDDDBD29F2B5F4004F9502 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDDDBC29F2B5F4004F9502 /* SetGame.swift */; };
+		61B042DB29F675ED00C3FF41 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042DA29F675ED00C3FF41 /* AspectVGrid.swift */; };
+		61B042DD29F6802F00C3FF41 /* TraditionalSetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */; };
+		61B042E229F680B400C3FF41 /* Oval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042DF29F680B400C3FF41 /* Oval.swift */; };
+		61B042E329F680B400C3FF41 /* Rhombus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042E029F680B400C3FF41 /* Rhombus.swift */; };
+		61B042E429F680B400C3FF41 /* Squiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B042E129F680B400C3FF41 /* Squiggle.swift */; };
+		61CDDDBD29F2B5F4004F9502 /* TraditionalSetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDDDBC29F2B5F4004F9502 /* TraditionalSetGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +27,12 @@
 		61779E6529ED8E2B00F1849F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61779E6829ED8E2B00F1849F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61779E6F29ED8E7A00F1849F /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
-		61CDDDBC29F2B5F4004F9502 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		61B042DA29F675ED00C3FF41 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionalSetParameters.swift; sourceTree = "<group>"; };
+		61B042DF29F680B400C3FF41 /* Oval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oval.swift; sourceTree = "<group>"; };
+		61B042E029F680B400C3FF41 /* Rhombus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rhombus.swift; sourceTree = "<group>"; };
+		61B042E129F680B400C3FF41 /* Squiggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Squiggle.swift; sourceTree = "<group>"; };
+		61CDDDBC29F2B5F4004F9502 /* TraditionalSetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionalSetGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +65,11 @@
 		61779E6029ED8E2B00F1849F /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				61CDDDBC29F2B5F4004F9502 /* SetGame.swift */,
+				61B042DE29F6809F00C3FF41 /* New Group */,
+				61B042DC29F6802F00C3FF41 /* TraditionalSetParameters.swift */,
+				61CDDDBC29F2B5F4004F9502 /* TraditionalSetGame.swift */,
 				61779E6129ED8E2B00F1849F /* SetApp.swift */,
+				61B042DA29F675ED00C3FF41 /* AspectVGrid.swift */,
 				61779E6329ED8E2B00F1849F /* SetGameView.swift */,
 				61779E6F29ED8E7A00F1849F /* Set.swift */,
 				61779E6529ED8E2B00F1849F /* Assets.xcassets */,
@@ -71,6 +84,16 @@
 				61779E6829ED8E2B00F1849F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		61B042DE29F6809F00C3FF41 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				61B042DF29F680B400C3FF41 /* Oval.swift */,
+				61B042E029F680B400C3FF41 /* Rhombus.swift */,
+				61B042E129F680B400C3FF41 /* Squiggle.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +166,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B042E329F680B400C3FF41 /* Rhombus.swift in Sources */,
 				61779E6429ED8E2B00F1849F /* SetGameView.swift in Sources */,
 				61779E6229ED8E2B00F1849F /* SetApp.swift in Sources */,
-				61CDDDBD29F2B5F4004F9502 /* SetGame.swift in Sources */,
+				61B042E429F680B400C3FF41 /* Squiggle.swift in Sources */,
+				61CDDDBD29F2B5F4004F9502 /* TraditionalSetGame.swift in Sources */,
+				61B042E229F680B400C3FF41 /* Oval.swift in Sources */,
+				61B042DB29F675ED00C3FF41 /* AspectVGrid.swift in Sources */,
+				61B042DD29F6802F00C3FF41 /* TraditionalSetParameters.swift in Sources */,
 				61779E7029ED8E7A00F1849F /* Set.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

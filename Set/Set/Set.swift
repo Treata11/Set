@@ -15,13 +15,21 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
     
     var chosenCardsIndices = Array<Int>()
     
-    var createCardContent: (Int) -> Card.CardContent    // be used in the init
+//    var cardContentFactory: (Int) -> Card.CardContent    // be used in the init
     
-    init(cards: Array<Card>, score: Int = 0, chosenCardsIndices: Array<Int> = Array<Int>(), createCardContent: @escaping (Int) -> Card.CardContent) {
-        self.cards = cards
-        self.score = score
-        self.chosenCardsIndices = chosenCardsIndices
-        self.createCardContent = createCardContent
+//    init(cards: Array<Card>, cardContentFactory: @escaping (Int) -> Card.CardContent) {
+//        self.cards = cards
+//        self.cardContentFactory = cardContentFactory
+//    }
+    
+    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> Card.CardContent) {
+        cards = Array<Card>()
+        for pairIndex in 0..<numberOfPairsOfCards {
+            let content = cardContentFactory(pairIndex)
+            cards.append(Card(symbol: content, id: pairIndex*2-1))
+            cards.append(Card(symbol: content, id: pairIndex*2))
+            // TODO: Change the ID to string raw value
+        }
     }
     
     mutating func choose(_ card: Card) {
@@ -71,7 +79,8 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
             } else {
                 score += 12
             }
-            chosenCardsIndices = [] // All cards are deselected on a match
+            // All cards are deselected on wether a match or not
+            chosenCardsIndices = []
         }
     }
     
@@ -100,27 +109,19 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
 //    }
     
     struct Card: Identifiable {
-        var symbol: CardContent
+        let symbol: CardContent
         var isFaceUp: Bool = true
         var isSelected: Bool = false
-        var isMatched: Bool
-        var id: Int
+        var isMatched: Bool = false
+        let id: Int
+        
+        // MARK: - Card Content
         
         struct CardContent {
-            var firstParameter: α
-            var secondParameter: β
-            var thirdParameter: γ
-            var forthParameter: δ
+            let firstParameter: α
+            let secondParameter: β
+            let thirdParameter: γ
+            let forthParameter: δ
         }
     }
-}
-
-enum Shade: CaseIterable, Equatable, Hashable {
-    case solid(opacity: Double = 1)
-    case striped(count: Int = 7)
-    case clear(opacity: Double = 0.3)
-
-    static var allCases: [Shade] = [
-        .solid(opacity: 1), .striped(count: 9), .clear(opacity: 0.3)
-    ]
 }
