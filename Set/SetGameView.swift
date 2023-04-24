@@ -76,7 +76,8 @@ struct CardView: View {
                 .foregroundColor(color(of: contex))
                 .aspectRatio(DrawingConstants.symbolAspectRatio, contentMode: .fit)
                 .opacity(opacity)
-            // TODO: mask (overylay) the symbol with the number of stripes
+            // TODO: Make the stripes and lineWidth be computed based on
+            // the space they're offered to!
                 .mask(Stripes(stripeCount: stripeCount, lineWidth: 1))
         }
     }

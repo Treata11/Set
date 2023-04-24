@@ -15,11 +15,11 @@ enum Symbol: Hashable, CaseIterable {
 
 enum Shade: CaseIterable, Equatable, Hashable {
     case solid(opacity: Double = 1)
-    case striped(count: Int = 13, opacity: Double = 0.7)
+    case striped(count: Int = 5, opacity: Double = 0.75)
     case clear(opacity: Double = 0.3)
 
     static var allCases: [Shade] = [
-        .solid(opacity: 1), .striped(count: 9), .clear(opacity: 0.3)
+        .solid(opacity: 1), .striped(count: 6, opacity: 0.75), .clear(opacity: 0.3)
     ]
 }
 

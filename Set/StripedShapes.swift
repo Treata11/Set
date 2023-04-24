@@ -29,7 +29,7 @@ struct Stripes: View {
     var lineWidth: CGFloat
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ForEach(0..<stripeCount, id: \.self) { _ in
                 Line(lineWidth: lineWidth)
             }
