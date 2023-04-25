@@ -22,7 +22,8 @@ class TraditionalSetGame: ObservableObject {
                                 firstParameter: shape,
                                 secondParameter: shading,
                                 thirdParameter: index,
-                                forthParameter: color)
+                                forthParameter: color
+                            )
                         )
                     }
                 }
@@ -33,7 +34,7 @@ class TraditionalSetGame: ObservableObject {
     }()
     
     static func createSetGame() -> SET<Symbol, Shade, Counter, Hue> {
-        SET(totalNumberOfOfCards: Int(floor(Double(cardContents.count)))) {    // Horrible type convertion
+        SET(numberOfCardsToBeShown: 27, totalNumberOfOfCards: Int(floor(Double(cardContents.count)))) {    // Horrible type convertion
             cardContents[$0]
         }
     }
@@ -54,17 +55,6 @@ class TraditionalSetGame: ObservableObject {
     
     func choose(_ card: Card) {
         model.choose(card)
-    }
-    
-    // MARK: - Initial Approache(s)
-    // to be deleted ...
-    
-    static func cardContentFactory(with pairIndex: Int) -> SET<Symbol, Shade, Counter, Hue> {
-        let content = [Capsule(), Circle(), Rectangle()] as [Any]
-        
-        return SET<Symbol, Shade, Counter, Hue>(totalNumberOfOfCards: pairIndex) { _ in
-            return content[pairIndex] as! SET<Symbol, Shade, Counter, Hue> .Card.CardContent
-        }
     }
 }
 
