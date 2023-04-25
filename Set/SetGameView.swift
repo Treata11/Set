@@ -94,7 +94,7 @@ struct CardView: View {
 }
 
 struct DrawingConstants {
-    static let cornerRadius: CGFloat = 5.0
+    static let cornerRadius: CGFloat = 13.0
     // TODO: Calculate the aspect ratio to be as good looking as possible
     static let symbolAspectRatio: CGFloat = 1
     static let defaultLineWidth: CGFloat = 2

@@ -9,7 +9,11 @@ import Foundation
 
 struct SET<α, β, γ, δ>
 where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
-    var cards: Array<Card>
+    var cards: Array<Card> {
+        didSet {
+            updateChosenCardsIndices()
+        }
+    }
     
     private(set) var score = 0
     
@@ -17,12 +21,16 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
     
     private var chosenCardsIndices = Set<Int>()
     
-//    var cardContentFactory: (Int) -> Card.CardContent    // be used in the init
+    private mutating func updateChosenCardsIndices() {
+//        chosenCardsIndices.removeAll()
+        for card in cards {
+            if card.isSelected {
+                chosenCardsIndices.insert(card.id)
+            }
+        }
+    }
     
-//    init(cards: Array<Card>, cardContentFactory: @escaping (Int) -> Card.CardContent) {
-//        self.cards = cards
-//        self.cardContentFactory = cardContentFactory
-//    }
+//    var cardContentFactory: (Int) -> Card.CardContent    // be used in the init
     
     init(numberOfCardsToBeShown: Int, totalNumberOfOfCards: Int, cardContentFactory: (Int) -> Card.CardContent) {
         cards = Array<Card>()
@@ -46,7 +54,6 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
                         if let chosenIndex = cards.firstIndex(where: { $0.id == iD } ) {
                             set(cards[chosenIndex])
                         }
-                        
                     })
                     // can't have more than 3 cards selected
                 }
@@ -108,8 +115,6 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
                     cards[chosenIndex].isSelected = false
                 }
             })
-//            chosenCardsIndices.forEach({ index in cards[index].isSelected = false })
-            // TODO: not cards at that index, cards with that id
             chosenCardsIndices = []
         }
     }
@@ -129,7 +134,6 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
 //    }
     
     struct Card: Identifiable, Equatable {
-//        weak var set: SET<α, β, γ, δ>?
         let symbol: CardContent
         var isFaceUp: Bool = true
         var isSelected: Bool = false
