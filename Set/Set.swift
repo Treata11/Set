@@ -15,7 +15,7 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
     
     var numberOfCardsToBeShown: Int
     
-    private var chosenCardsIndices = Array<Int>()
+    private var chosenCardsIndices = Set<Int>()
     
 //    var cardContentFactory: (Int) -> Card.CardContent    // be used in the init
     
@@ -36,19 +36,32 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
     
     mutating func choose(_ card: Card) {
         if let chosenIndex = cards.firstIndex(where: { card.id == $0.id } ) {
-            cards[chosenIndex].isSelected.toggle()
+            cards[chosenIndex].isSelected = true
+            chosenCardsIndices.insert(cards[chosenIndex].id)
             if cards[chosenIndex].isSelected {
                 if chosenCardsIndices.count == 3 {
                     // do the set here
-                    chosenCardsIndices.forEach({ index in set(cards[index]) })
+//                    chosenCardsIndices.forEach({ index in set(cards[index]) })
+                    chosenCardsIndices.forEach({ iD in
+                        if let chosenIndex = cards.firstIndex(where: { $0.id == iD } ) {
+                            set(cards[chosenIndex])
+                        }
+                        
+                    })
                     // can't have more than 3 cards selected
-                } else {
-                    chosenCardsIndices.append(chosenIndex)
                 }
             }
-            print("\(cards[chosenIndex].id)")
+            print("\(chosenCardsIndices)")
         }
     }
+    
+//    mutating func deselect(_ card: Card) {
+//        if let selectedIndex = cards.firstIndex(where: { card.id == $0.id } ) {
+//            if cards[selectedIndex].isSelected {
+//                chosenCardsIndices.remove(at: cards[selectedIndex].id)
+//            }
+//        }
+//    }
     
     mutating func deal(a card: Card) {
         self.numberOfCardsToBeShown += 1
@@ -61,21 +74,26 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
             var counter = Set<β>()
             var color = Set<γ>()
             var shading = Set<δ>()
-            
-            for index in chosenCardsIndices {
-                shapes.insert(cards[index].symbol.firstParameter)
-                counter.insert(cards[index].symbol.secondParameter)
-                color.insert(cards[index].symbol.thirdParameter)
-                shading.insert(cards[index].symbol.forthParameter)
-            }
+
+            chosenCardsIndices.forEach({ iD in
+                    if let chosenIndex = cards.firstIndex(where: { $0.id == iD } ) {
+                    shapes.insert(cards[chosenIndex].symbol.firstParameter)
+                    counter.insert(cards[chosenIndex].symbol.secondParameter)
+                    color.insert(cards[chosenIndex].symbol.thirdParameter)
+                    shading.insert(cards[chosenIndex].symbol.forthParameter)
+                }
+            })
             let differentials = [shapes.count, counter.count, color.count, shading.count]
             
             if differentials.contains(1) {  // indicating no differential in an element
-                for index in chosenCardsIndices {
-                    cards[index].isMatched = true
-                    cards.remove(at: index) // Extreme!
-                    // The card is removed for the viewcontainer to have more space to offer to subviews
-                }
+                chosenCardsIndices.forEach({ iD in
+                    if let chosenIndex = cards.firstIndex(where: { $0.id == iD } ) {
+                        cards[chosenIndex].isMatched = true
+                        cards.remove(at: chosenIndex) // Extreme!
+                        // The card is removed for the viewcontainer to have more space to offer to subviews
+                    }
+                })
+                chosenCardsIndices.removeAll()
                 score += 4
             } else if differentials.contains(2) {
                 score -= 2
@@ -85,7 +103,13 @@ where α: Hashable, β: Hashable, γ: Hashable, δ: Hashable {
                 score += 12
             }
             // All cards are deselected wether a match did take place or not
-            chosenCardsIndices.forEach({ index in cards[index].isSelected = false })
+            chosenCardsIndices.forEach({ iD in
+                if let chosenIndex = cards.firstIndex(where: { $0.id == iD } ) {
+                    cards[chosenIndex].isSelected = false
+                }
+            })
+//            chosenCardsIndices.forEach({ index in cards[index].isSelected = false })
+            // TODO: not cards at that index, cards with that id
             chosenCardsIndices = []
         }
     }
